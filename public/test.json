@@ -1,0 +1,583 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Customer"
+  },
+  "host": "localhost",
+  "basePath": "/api/customer",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "Queries",
+      "description": "Query the Customer domain"
+    },
+    {
+      "name": "Commands",
+      "description": "Modify the Customer domain"
+    }
+  ],
+  "paths": {
+    "/myCustomActionName": {
+      "post": {
+        "tags": [
+          "Commands"
+        ],
+        "description": "Allows creating a test action 'myAction' that takes a Customer as an input and return true or false ",
+        "summary": "myCustomActionName Summary",
+        "operationId": "myAction",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "input",
+            "description": "Allows creating a test action 'myAction' that takes a Customer as an input and return true or false ",
+            "required": true,
+            "schema": {
+              "$ref": "http://localhost:8888/Customer.json#/definitions/Customer"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BooleanActionResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/totoAction": {
+      "post": {
+        "tags": [
+          "Commands"
+        ],
+        "description": "this is a dummy totoAction that return true or false depending on the number of characters in Toto's nickname",
+        "summary": "totoAction Summary",
+        "operationId": "totoAction",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "input",
+            "description": "this is a dummy totoAction that return true or false depending on the number of characters in Toto's nickname",
+            "required": true,
+            "schema": {
+              "$ref": "http://localhost:8888/Toto.json#/definitions/Toto"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BooleanActionResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "tags": [
+          "Commands"
+        ],
+        "description": "Actions around the Customer model",
+        "summary": "create Summary",
+        "operationId": "createAsync",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Actions around the Customer model",
+            "required": true,
+            "schema": {
+              "$ref": "http://localhost:8888/Customer.json#/definitions/Customer"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomerActionResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/update": {
+      "post": {
+        "tags": [
+          "Commands"
+        ],
+        "description": "Actions around the Customer model",
+        "summary": "update Summary",
+        "operationId": "updateAsync",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "input",
+            "description": "Actions around the Customer model",
+            "required": true,
+            "schema": {
+              "$ref": "http://localhost:8888/Customer.json#/definitions/Customer"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomerActionResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/delete/{id}": {
+      "post": {
+        "tags": [
+          "Commands"
+        ],
+        "description": "Actions around the Customer model",
+        "summary": "delete Summary",
+        "operationId": "deleteAsync",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Actions around the Customer model",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomerActionResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/myCustomQueryName": {
+      "get": {
+        "tags": [
+          "Queries"
+        ],
+        "summary": "myCustomQueryName Summary",
+        "description": "Allows querying a test action 'myQuery' that takes a filter as an input and return a Customer array ",
+        "operationId": "myQuery",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "http://localhost:8888/Customer.json#/definitions/Customer"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/get/{id}": {
+      "get": {
+        "tags": [
+          "Queries"
+        ],
+        "summary": "get Summary",
+        "description": "get Description",
+        "operationId": "getAsync",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "resource id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomerQueryGetResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/get": {
+      "get": {
+        "tags": [
+          "Queries"
+        ],
+        "summary": "search Summary",
+        "description": "search Description",
+        "operationId": "getAllAsync",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CustomerQuerySearchResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Customer": {
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName"
+      ]
+    },
+    "Toto": {
+      "properties": {
+        "nickName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nickName"
+      ]
+    },
+    "ValidationError": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "field": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidationError"
+          }
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "QueryResponse": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      },
+      "required": [
+        "source",
+        "schema",
+        "domain",
+        "action"
+      ]
+    },
+    "QuerySearchResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/QueryResponse"
+        },
+        {
+          "properties": {
+            "total": {
+              "type": "number"
+            },
+            "maxByPage": {
+              "type": "number"
+            },
+            "page": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "ActionResponse": {
+      "type": "object",
+      "properties": {
+        "correlationId": {
+          "type": "string",
+          "description": "Correlation Id"
+        },
+        "startedAt": {
+          "type": "string"
+        },
+        "completedAt": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "taskId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Error",
+            "Pending",
+            "Success"
+          ]
+        },
+        "commandMode": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      },
+      "required": [
+        "correlationId",
+        "startedAt",
+        "service",
+        "status",
+        "source",
+        "domain",
+        "action",
+        "schema"
+      ]
+    },
+    "GenericActionResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ActionResponse"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": "object"
+            }
+          }
+        }
+      ]
+    },
+    "BooleanActionResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ActionResponse"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ]
+        }
+      ]
+    },
+    "CustomerActionResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ActionResponse"
+        },
+        {
+          "properties": {
+            "value": {
+              "$ref": "http://localhost:8888/Customer.json#/definitions/Customer"
+            }
+          },
+          "required": [
+            "value"
+          ]
+        }
+      ]
+    },
+    "CustomerQueryGetResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/QueryResponse"
+        },
+        {
+          "properties": {
+            "value": {
+              "$ref": "http://localhost:8888/Customer.json#/definitions/Customer"
+            }
+          },
+          "required": [
+            "value"
+          ]
+        }
+      ]
+    },
+    "CustomerQuerySearchResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/QuerySearchResponse"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "http://localhost:8888/Customer.json#/definitions/Customer"
+              }
+            }
+          },
+          "required": [
+            "value"
+          ]
+        }
+      ]
+    }
+  }
+}

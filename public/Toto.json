@@ -1,0 +1,14 @@
+{
+  "definitions": {
+    "Toto": {
+      "properties": {
+        "nickname": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nickname"
+      ]
+    }
+  }
+}
